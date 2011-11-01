@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import com.shared.model.ModelShared;
+			import com.two.model.ImportedNotUsedTwo;
+			import com.two.model.ModelTwo;
+		
+			private var model : ModelTwo;
+			private var modelShared : ModelShared;
+		]]>
+	</mx:Script>
+</mx:Application>
