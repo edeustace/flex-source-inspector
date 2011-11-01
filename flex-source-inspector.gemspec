@@ -4,9 +4,9 @@ require File.expand_path('../lib/flex-source-inspector/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["ed eustace"]
   gem.email         = ["ed.eustace@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{inspects the source folder of a flex project using 1 or more link-reports and outputs a list of files that aren't in use}
+  gem.summary       = %q{inspects the source folder of a flex project using 1 or more link-reports and outputs a list of files that aren't in use}
+  gem.homepage      = "https://github.com/edeustace/flex-source-inspector"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
