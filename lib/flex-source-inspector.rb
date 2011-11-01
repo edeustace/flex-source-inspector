@@ -10,6 +10,10 @@ module FlexSourceInspector
     def self.inspect( src_folder, *link_reports)
 
       puts "-- inspect --"
+      puts "pwd: #{Dir.pwd}"
+
+      raise "FlexSourceInspector::Error source folder doesn't exist #{src_folder}" unless File.exists? src_folder
+
       project_files = Dir["#{src_folder}/**/*.as"]
       project_files.concat Dir["#{src_folder}/**/*.mxml"]
       
@@ -20,6 +24,8 @@ module FlexSourceInspector
 
       link_reports.each{|report|
         puts "reading: #{report}"
+        raise "FlexSourceInspector::Error: #{report} doesn't exist!" unless File.exists?( report )
+        
         file = File.open( report )
         doc = REXML::Document.new file
      
@@ -30,12 +36,7 @@ module FlexSourceInspector
       }
 
       unused = project_files - used
-      unused.each{|file|
-        puts "#{file}"
-      }
-      puts "--"
-
-      unused
+      unused.join "\n"
     end
 
     def self.add_to_used(used, project_files, class_declaration, src_folder)
