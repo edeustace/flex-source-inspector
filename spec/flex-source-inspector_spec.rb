@@ -9,7 +9,8 @@ describe FlexSourceInspector::Inspector do
     link_report = "spec/data/ApplicationOne_link-report.xml"
     src = "spec/data/LinkReportTestProject/flex-src"
     result = FlexSourceInspector::Inspector.inspect(src, link_report)
-    result.length.should == 5
+    puts "result: #{result}"
+    result.should( include "NotUsedOne.as")
   end
 
   it "will return an array of unused classes for multiple link reports" do
@@ -17,7 +18,9 @@ describe FlexSourceInspector::Inspector do
     link_report_two = "spec/data/ApplicationTwo_link-report.xml"
     src = "spec/data/LinkReportTestProject/flex-src"
     result = FlexSourceInspector::Inspector.inspect(src, link_report, link_report_two)
-    result.length.should == 3
+    puts "result: #{result}"
+    result.should( include "NotUsedOne.as" )
+    result.should_not( include "ModelTwo.as")
 
   end
 end
