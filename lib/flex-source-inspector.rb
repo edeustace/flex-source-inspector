@@ -27,18 +27,18 @@ module FlexSourceInspector
         file = File.open( report )
         doc = REXML::Document.new file
     
-        debugger 
         doc.elements.each("//script"){ |script|
           name = script.attributes["name"]
           add_to_used( used, project_files, name, src_folder )
         }
       }
+      puts ""
+      puts ""
       unused = project_files - used
       unused.join "\n"
     end
 
     def self.add_to_used(used, project_files, class_declaration, src_folder)
-      debugger  
       project_files.each{ |file| 
         cleaned = file.gsub( src_folder, "")
         used << file if is_declared?(cleaned, class_declaration)
