@@ -49,7 +49,7 @@ module FlexSourceInspector
     # A declaration can either be: 
     # "/Path/to/file/com/MyClass.as"
     # or
-    # "/Path/to/My.swc(com.MyClass)"
+    # "/Path/to/My.swc(com:MyClass)"
     # We check to see if either declaration matches the given file.
     ###
     def self.is_declared?( file_name, declaration )
