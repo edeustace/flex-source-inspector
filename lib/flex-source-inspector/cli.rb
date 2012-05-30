@@ -10,6 +10,7 @@ module FlexSourceInspector
     desc "inspect path_to_flex_src, path_to_link_reports [, ... path_to_link_report]", "pass in the path to the flex src, and 1..* paths to link-report xml files"
     def inspect( src_folder, *link_reports)
       puts FlexSourceInspector::Inspector.inspect( src_folder, *link_reports )
+      puts "----"
     end
   end
 end
