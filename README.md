@@ -11,3 +11,6 @@ read: https://github.com/radar/guides/blob/master/gem-development.md
 
 ### Run Tests
     rspec spec/flex-source-inspector_spec.rb
+
+### Install Gem Locally
+    rake install
