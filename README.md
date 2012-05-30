@@ -8,3 +8,6 @@ given a source folder and an array of link reports, it will return a list of fil
     
 ### Building
 read: https://github.com/radar/guides/blob/master/gem-development.md
+
+### Run Tests
+    rspec spec/flex-source-inspector_spec.rb
