@@ -33,9 +33,9 @@ module FlexSourceInspector
         }
       }
       puts ""
-      puts ""
       unused = project_files - used
-      unused.join "\n"
+      lines = unused.join("\n")
+      "result:\n#{lines}\nend"
     end
 
     def self.add_to_used(used, project_files, class_declaration, src_folder)
