@@ -14,3 +14,7 @@ read: https://github.com/radar/guides/blob/master/gem-development.md
 
 ### Install Gem Locally
     rake install
+    
+### Publish
+    gem push (to sign in)
+    rake release
