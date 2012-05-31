@@ -6,8 +6,8 @@ module FlexSourceInspector
 
     def self.inspect( src_folder, *link_reports)
 
-      puts ">-- inspect --"
-      puts "pwd: #{Dir.pwd}"
+      puts "\nFlex Source Inspector : Version: #{Flex::Source::Inspector::VERSION}"
+      puts "-- inspect --"
 
       raise "FlexSourceInspector::Error source folder doesn't exist #{src_folder}" unless File.exists? src_folder
 
@@ -16,12 +16,11 @@ module FlexSourceInspector
       
       used = Array.new
 
-      puts ""
       puts "src folder: #{src_folder}"
-      puts ""
 
+      names = link_reports.map{ |n| File.basename(n)}
+      puts "reading: #{names.join(', ')}"
       link_reports.each{|report|
-        puts "reading: #{report}"
         raise "FlexSourceInspector::Error: #{report} doesn't exist!" unless File.exists?( report )
         
         file = File.open( report )
@@ -32,7 +31,6 @@ module FlexSourceInspector
           add_to_used( used, project_files, name, src_folder )
         }
       }
-      puts ""
       unused = project_files - used
       lines = unused.join("\n")
       "result:\n#{lines}\nend"
